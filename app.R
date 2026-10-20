@@ -7,7 +7,7 @@ ui <- navbarPage("Group 9 - Production Planning",
 
 server <- function(input, output, session) {
   learning_server("learning")
-  forecasting_server("forecasting")  
+  forecasting_server("forecasting")
 }
 
 shinyApp(ui, server)
