@@ -93,7 +93,7 @@ forecasting_server <- function(id) {
       selectInput(ns("selected_col"), "Select Series / Column:", choices = num_cols, selected = num_cols[length(num_cols)])
     })
     
-    # Seriyi ts objesi olarak alma
+    # Seriyi ts objesi olarak alma (Düzeltilen satır)
     target_ts <- reactive({
       df <- raw_df()
       req(df, input$selected_col)
@@ -271,7 +271,7 @@ forecasting_server <- function(id) {
           }
         }
         
-        # B) TREND SERIES (Holt's Linear)
+      # B) TREND SERIES (Holt's Linear)
       } else if (input$category == "Trend Series") {
         a_val <- if (input$holt_mode == "Manual") input$holt_alpha else NULL
         b_val <- if (input$holt_mode == "Manual") input$holt_beta else NULL
@@ -292,7 +292,7 @@ forecasting_server <- function(id) {
         fitted_vals[3:n_len] <- fit_obj$fitted[, "xhat"]
         future_vals <- as.numeric(predict(fit_obj, n.ahead = h))
         
-        # C) SEASONAL SERIES
+      # C) SEASONAL SERIES
       } else if (input$category == "Seasonal Series") {
         req(input$season_method)
         freq_val <- frequency(y)
@@ -335,7 +335,7 @@ forecasting_server <- function(id) {
           future_vals <- as.numeric(predict(fit_obj, n.ahead = h))
         }
         
-        # D) BOX-JENKINS (AR, MA, ARMA, ARIMA)
+      # D) BOX-JENKINS (AR, MA, ARMA, ARIMA)
       } else if (input$category == "Box-Jenkins") {
         if (input$arima_mode == "Auto-ARIMA (Automatic)") {
           fit_obj <- forecast::auto.arima(y)
