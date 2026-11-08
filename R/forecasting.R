@@ -5,7 +5,7 @@ library(forecast)
 # FORECASTING MODULE
 # ============================================================
 
-forecastingUI <- function(id) {
+forecasting_ui <- function(id) {
   ns <- NS(id)
 
   tagList(
