@@ -2,6 +2,7 @@ library(shiny)
 library(readxl)
 library(DT)
 library(lpSolve)
+library(forecast)
 
 # All module files in the R/ folder are loaded automatically by Shiny.
 # Modules that already existed in the group project (e.g. learning_curve.R)
